@@ -6,7 +6,7 @@ pipeline {
         maven 'Maven'
     }
     environment {
-        DOCKER_REPO_SERVER = '664574038682.dkr.ecr.eu-west-3.amazonaws.com'
+        DOCKER_REPO_SERVER = '121363438760.dkr.ecr.us-east-2.amazonaws.com'
         DOCKER_REPO = "${DOCKER_REPO_SERVER}/java-maven-app"
     }
     stages {
@@ -45,8 +45,8 @@ pipeline {
         }
         stage('deploy') {
             environment {
-                AWS_ACCESS_KEY_ID = credentials('jenkins_aws_access_key_id')
-                AWS_SECRET_ACCESS_KEY = credentials('jenkins_aws_secret_access_key')
+                AWS_ACCESS_KEY_ID = credentials('aws_access_key_id')
+                AWS_SECRET_ACCESS_KEY = credentials('aws_secret_access_key')
                 APP_NAME = 'java-maven-app'
             }
             steps {
